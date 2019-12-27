@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Book {
 
+	private static final long SerialVersionUID = 4L;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,12 +25,8 @@ public class Book {
     private String description;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "book_author", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
+    @JoinTable(name = "book_author", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "auth_id"))
     private Set<Author> authors;
-
-    public Book() {
-
-    }
 
     public Integer getId() {
         return id;

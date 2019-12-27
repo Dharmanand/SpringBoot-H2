@@ -8,27 +8,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import javassist.SerialVersionUID;
+
 @Entity
 public class Author {
 
+	private static final long SerialVersionUID = 4L;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer auth_id;
 
     private String name;
 
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getAuth_id() {
+		return auth_id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setAuth_id(Integer auth_id) {
+		this.auth_id = auth_id;
+	}
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 

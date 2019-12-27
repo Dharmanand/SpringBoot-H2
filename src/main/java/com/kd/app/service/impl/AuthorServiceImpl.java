@@ -33,7 +33,7 @@ public class AuthorServiceImpl implements AuthorService{
 	@Override
 	public Author updateAuthor(Integer authorId, Author authorRequest) {
 		Author author = authorRepo.getOne(authorId);
-		author.setId(authorRequest.getId());
+		author.setAuth_id(authorRequest.getAuth_id());
 		author.setBooks(authorRequest.getBooks());
 		author.setName(authorRequest.getName());
 		return authorRepo.save(author);
